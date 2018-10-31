@@ -22,11 +22,16 @@ import FirebaseFirestore
 /// table view with new data from Firestore in the updateHandler closure.
 @objc class RestaurantTableViewDataSource: NSObject, UITableViewDataSource {
 
+  private let query: Query
+  private var listener: ListenerRegistration?
+  private let updateHandler: ([DocumentChange]) -> ()
+  
   private var restaurants: [Restaurant] = []
 
   public init(query: Query,
               updateHandler: @escaping ([DocumentChange]) -> ()) {
-    fatalError("Unimplemented")
+    self.query = query
+    self.updateHandler = updateHandler
   }
 
 
@@ -34,13 +39,34 @@ import FirebaseFirestore
 
   /// Starts listening to the Firestore query and invoking the updateHandler.
   public func startUpdates() {
-    fatalError("Unimplemented")
+    guard listener == nil else { return }
+    listener = query.addSnapshotListener{ [unowned self] (querySnapshot, error) in
+      guard let snapshot = querySnapshot else {
+        if let error = error {
+          print("Error fetching snapshot results: \(error)")
+        } else {
+          print("Unknown error fetching snapshot data")
+        }
+        return
+      }
+      let models = snapshot.documents.map { (document) -> Restaurant in
+        if let model = Restaurant(document: document) {
+          return model
+        } else {
+          fatalError("Unable to initialize Restaurant with dictionary \(document.data())")
+        }
+      }
+      self.restaurants = models
+      self.updateHandler(snapshot.documentChanges)
+    }
+    
   }
 
   /// Stops listening to the Firestore query. updateHandler will not be called unless startListening
   /// is called again.
   public func stopUpdates() {
-    fatalError("Unimplemented")
+    listener?.remove()
+    listener = nil
   }
 
   /// Returns the restaurant at the given index.

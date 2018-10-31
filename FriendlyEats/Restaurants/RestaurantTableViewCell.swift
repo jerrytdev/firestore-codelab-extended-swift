@@ -32,6 +32,12 @@ class RestaurantTableViewCell: UITableViewCell {
 
   func populate(restaurant: Restaurant) {
     // TODO: Fill this out
+    nameLabel.text = restaurant.name
+    cityLabel.text = restaurant.city
+    categoryLabel.text = restaurant.category
+    starsView.rating = Int(restaurant.averageRating.rounded())
+    priceLabel.text = Utils.priceString(from: restaurant.price)
+    thumbnailView.sd_setImage(with: restaurant.photoURL)
   }
 
   override func prepareForReuse() {

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zfS-ct-jiF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zfS-ct-jiF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfh-ya-kgX">
-                                <rect key="frame" x="85" y="149" width="206" height="30"/>
+                                <rect key="frame" x="84.5" y="149" width="206" height="30"/>
                                 <state key="normal" title="Change a Restaurant's Details"/>
                                 <connections>
                                     <action selector="changeRestNameWasTapped:" destination="ONf-7Z-SIp" eventType="touchUpInside" id="aFY-Ag-VZv"/>
@@ -62,7 +61,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP2-Y2-sl4">
-                                <rect key="frame" x="124" y="309" width="128" height="30"/>
+                                <rect key="frame" x="123.5" y="309" width="128" height="30"/>
                                 <state key="normal" title="Add a Fake Review"/>
                                 <connections>
                                     <action selector="addFakeReviewWasTapped:" destination="ONf-7Z-SIp" eventType="touchUpInside" id="CLw-sV-B8g"/>
@@ -81,7 +80,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKR-hV-8EJ">
-                                <rect key="frame" x="180" y="420" width="14" height="21"/>
+                                <rect key="frame" x="180.5" y="420" width="14" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -94,14 +93,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dt9-My-szF">
-                                <rect key="frame" x="130.5" y="469" width="113" height="30"/>
+                                <rect key="frame" x="131" y="469" width="113" height="30"/>
                                 <state key="normal" title="Give me 5 Stars!"/>
                                 <connections>
                                     <action selector="giveMeFiveStarsWasTapped:" destination="ONf-7Z-SIp" eventType="touchUpInside" id="aK0-TY-ZdJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ns-HC-C0M">
-                                <rect key="frame" x="180" y="500" width="14" height="21"/>
+                                <rect key="frame" x="180.5" y="500" width="14" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -153,7 +152,7 @@
         <!--Restaurants-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Restaurants" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="BasicRestaurantsTableViewController" customModule="FriendlyEats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Restaurants" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="RestaurantsTableViewController" customModule="FriendlyEats" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -252,19 +251,19 @@
                                 <rect key="frame" x="8" y="64" width="359" height="44"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qz3-be-flj">
-                                        <rect key="frame" x="-32" y="12" width="0.0" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="12" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Burgers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLJ-1I-oz6">
-                                        <rect key="frame" x="-8" y="12" width="0.0" height="20.5"/>
+                                        <rect key="frame" x="24" y="12" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c93-Ry-jOd">
-                                        <rect key="frame" x="-8" y="12" width="21.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="12" width="21.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -377,13 +376,13 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPW-8S-SIQ">
-                                            <rect key="frame" x="98" y="104" width="65.5" height="20.5"/>
+                                            <rect key="frame" x="98.5" y="103.5" width="65.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojs-Kq-qFI">
-                                            <rect key="frame" x="329" y="99.5" width="30" height="30"/>
+                                            <rect key="frame" x="329" y="99" width="30" height="30"/>
                                             <state key="normal" title="Edit">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
@@ -439,7 +438,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I thought this place was pretty good but I had some issues with the service" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ls-fY-5PX">
-                                                    <rect key="frame" x="23" y="46.5" width="344" height="62"/>
+                                                    <rect key="frame" x="23" y="46.5" width="344" height="62.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -453,7 +452,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 yums" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3b-AE-Lw1">
-                                                    <rect key="frame" x="50" y="116" width="59" height="18"/>
+                                                    <rect key="frame" x="50" y="116.5" width="59" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="pCS-B1-lYh"/>
                                                     </constraints>
@@ -469,7 +468,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPP-eR-d6z">
-                                                    <rect key="frame" x="16" y="110" width="30" height="30"/>
+                                                    <rect key="frame" x="16" y="110.5" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="0EC-gg-CkI"/>
                                                         <constraint firstAttribute="height" constant="30" id="d4S-cn-4XT"/>
@@ -1295,7 +1294,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_person" width="24" height="24"/>
-        <image name="ic_restaurant" width="24" height="24"/>
+        <image name="ic_person" width="48" height="48"/>
+        <image name="ic_restaurant" width="48" height="48"/>
     </resources>
 </document>
