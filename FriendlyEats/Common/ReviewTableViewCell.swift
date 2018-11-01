@@ -53,8 +53,84 @@ class ReviewTableViewCell: UITableViewCell {
   }
 
   @IBAction func yumWasTapped(_ sender: Any) {
-    // TODO: Let's increment the yumCount!
+    
+    guard let currentUser = Auth.auth().currentUser else { return }
 
+    let reviewReference = Firestore.firestore()
+      .collection("reviews")
+      .document(review.documentID)
+    Firestore.firestore().runTransaction( { (transaction, errorPointer) -> Any? in
+      // 1. Get latest review from DB
+      let reviewSnapshot: DocumentSnapshot
+      do {
+          try reviewSnapshot = transaction.getDocument(reviewReference)
+      } catch let error as NSError {
+        errorPointer?.pointee = error
+        return nil
+      }
+      
+      // 2. Perform internal logic
+      guard let latestReview = Review(document: reviewSnapshot) else {
+        let error = NSError(domain: "FriendlyEatsErrorDomain", code: 0, userInfo: [
+          NSLocalizedDescriptionKey: "Review at \(reviewReference.path) didn't look valid"
+          ])
+        errorPointer?.pointee = error
+        return nil
+      }
+      let newYumCount = latestReview.yumCount + 1
+      
+      // 3. Write new yum to subcollection
+      let newYum = Yum(documentID: currentUser.uid, username: currentUser.displayName ?? "Unknown user")
+      let newYumReference = reviewReference.collection("yums").document(newYum.documentID)
+      transaction.setData(newYum.documentData, forDocument: newYumReference)
+      
+      //4. update the yum count
+      transaction.updateData(["yumCount": newYumCount], forDocument: reviewReference)
+      
+      return nil
+    }) { (_, error) in
+      if let error = error {
+        print("Error updating yum count: \(error)")
+      } else {
+        print("yum count successfully updated")
+      }
+    }
+    
+    /*
+     Bad!
+    // Let's increment the yumCount! - Step 10
+    let reviewReference = Firestore.firestore()
+      .collection("reviews")
+      .document(review.documentID)
+    reviewReference.getDocument { (snapshot,error) in
+      if let error = error {
+        print("Got an error fetching the document? \(error)")
+        return
+      }
+      guard let snapshot = snapshot else { return }
+      guard let review = Review(document: snapshot) else { return }
+      print("This review currently has \(review.yumCount) yums")
+      let newYumCount = review.yumCount+1
+      
+      guard let currentUser = Auth.auth().currentUser else { return }
+      let newYum = Yum(documentID: currentUser.uid, username: currentUser.displayName ?? "Unknown user")
+      let newYumReference = reviewReference.collection("yums").document(newYum.documentID)
+      newYumReference.setData(newYum.documentData, completion: { (error) in
+        if let error = error {
+          print("Got an error adding the new yum document \(error)")
+        } else {
+          reviewReference.updateData(["yumCount": newYumCount]) { err in
+              if let err = err {
+                print("Error updating yum count: \(err)")
+              } else {
+                print("yum count updated successfully")
+            }
+          }
+        }
+      })
+    }
+    */
+    
   }
 
 }

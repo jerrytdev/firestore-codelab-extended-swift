@@ -92,7 +92,7 @@ class EditRestaurantViewController: UIViewController, UINavigationControllerDele
     }
 
 
-    // TODO: Update the restaurant document in Cloud Firestore - Step 8
+    // Update the restaurant document in Cloud Firestore - Step 8
     Firestore.firestore()
       .collection("restaurants")
       .document(restaurant.documentID)
