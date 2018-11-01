@@ -50,7 +50,8 @@ class RestaurantDetailViewController: UIViewController {
   }
 
   lazy private var baseQuery: Query = {
-    return fatalError("Unimplemented")
+    Firestore.firestore().collection("reviews")
+      .whereField("restaurantID", isEqualTo: restaurant.documentID)
   }()
 
   static func fromStoryboard(_ storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil),
