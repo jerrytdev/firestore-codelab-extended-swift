@@ -37,6 +37,7 @@
 		8DF1E3151EE72C4600192CDE /* LocalCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1E3141EE72C4600192CDE /* LocalCollection.swift */; };
 		8DF77E1A1EEB45E500CB2330 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF77E191EEB45E500CB2330 /* RestaurantDetailViewController.swift */; };
 		8DF77E1C1EEB645100CB2330 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF77E1B1EEB645100CB2330 /* StarsView.swift */; };
+		E27DEB3F2193590C00A84538 /* LazyRestaurantTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27DEB3E2193590C00A84538 /* LazyRestaurantTableViewDataSource.swift */; };
 		E2DBFBAF2189243A00E0EF61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2DBFBAE2189243A00E0EF61 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		8DF77E191EEB45E500CB2330 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		8DF77E1B1EEB645100CB2330 /* StarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 		9E225A2DA1F5AE20A9218112 /* Pods-FriendlyEats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendlyEats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendlyEats/Pods-FriendlyEats.debug.xcconfig"; sourceTree = "<group>"; };
+		E27DEB3E2193590C00A84538 /* LazyRestaurantTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyRestaurantTableViewDataSource.swift; sourceTree = "<group>"; };
 		E2DBFBAE2189243A00E0EF61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +155,7 @@
 				8DF1E3141EE72C4600192CDE /* LocalCollection.swift */,
 				8DF77E1B1EEB645100CB2330 /* StarsView.swift */,
 				8D70C1B9201FECE2007D3082 /* Firestore+Populate.swift */,
+				E27DEB3E2193590C00A84538 /* LazyRestaurantTableViewDataSource.swift */,
 				8D2A2A0A202BC3B600343C13 /* ReviewTableViewDataSource.swift */,
 				8DDCD363203261A500CFBF60 /* RestaurantTableViewDataSource.swift */,
 				496B6099203363A9005AD625 /* ReviewTableViewCell.swift */,
@@ -455,6 +458,7 @@
 				8D6014FC202B8B23003E8091 /* ProfileViewController.swift in Sources */,
 				8D5DF7021F7EF3BA00B0D24F /* NewReviewViewController.swift in Sources */,
 				8DDCD366203277CA00CFBF60 /* AddRestaurantViewController.swift in Sources */,
+				E27DEB3F2193590C00A84538 /* LazyRestaurantTableViewDataSource.swift in Sources */,
 				49C24867202A237000D6008A /* HackPageViewController.swift in Sources */,
 				8DF1E3131EE5CFF900192CDE /* Restaurant.swift in Sources */,
 				8DF77E1A1EEB45E500CB2330 /* RestaurantDetailViewController.swift in Sources */,
