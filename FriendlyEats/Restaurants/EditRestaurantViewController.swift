@@ -100,9 +100,10 @@ class EditRestaurantViewController: UIViewController, UINavigationControllerDele
         if let err = err {
           print("Error writing document: \(err)")
         } else {
-          self.presentDidSaveAlert()
+          print("Edit confirmed by the server.")
         }
     }
+    self.presentDidSaveAlert()
   }
 
   // MARK: Setting up pickers

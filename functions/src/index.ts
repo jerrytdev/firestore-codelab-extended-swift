@@ -13,13 +13,11 @@
 //  limitations under the License.
 //
 
-// TODO(DEVELOPER): Import the Cloud Functions for Firebase and the Firebase Admin modules here.
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 type Firestore = admin.firestore.Firestore
 const app = admin.initializeApp();
 
-  // TODO(DEVELOPER): Write the computeAverageReview Function here.
 export const computeAverageReview = functions.firestore
   .document('reviews/{reviewId}').onWrite((change, context) => {
   // get the data from the write event
@@ -33,8 +31,8 @@ export const computeAverageReview = functions.firestore
     const prevRating = previousValue.rating;
     if (rating === prevRating) {
       console.log("not a new rating");
-    return null;
-  	}
+      return null;
+    }
   }
   const restaurantID = eventData.restaurantID;
   const db = app.firestore()
@@ -46,13 +44,22 @@ export const computeAverageReview = functions.firestore
   }
 });
 
-// TODO(DEVELOPER): Add updateAverage helper function here.
+export const updateRest = functions.firestore.document('restaurants/{restaurantID}').onUpdate((change, context) => {
+  const eventData = change.after.data();
+  const restaurantID = context.params.restaurantID;
+  const prevEventData = change.before.data();
+  const name = eventData.name;
+  const oldName = prevEventData.name;
+  if (oldName === name) {
+    console.log("change was not in name. No need to update reviews.")
+    return null;
+  }
+  const db = app.firestore();
+  return updateRestaurant(db, restaurantID, name);
+});
+
 async function updateAverage(db: Firestore, restaurantID: string, newRating: number, prev: boolean) {
   const updateDB = db.collection('restaurants').doc(restaurantID);
-
-  // Updated in step 11
-  // const restaurantDoc = await updateDB.get();
-  
   const transactionResult = await db.runTransaction(t=> {
     return (async () => {
       const restaurantDoc = await t.get(updateDB);
@@ -70,13 +77,27 @@ async function updateAverage(db: Firestore, restaurantID: string, newRating: num
       }
       await t.update(updateDB, {averageRating: newAvgRating, reviewCount: newNumReviews});
       console.log("average updated");
-      return null;      
+      return null;
     })();
   })
 
   return transactionResult;
 }
 
-// TODO(DEVELOPER): Write the updateRest Function here.
 
-// TODO(DEVELOPER): Add updateRestaurant helper function here.
+async function updateRestaurant(db: Firestore, restaurantID: string, name: string) {
+  const updateRef = db.collection('reviews');
+  const queryRef = updateRef.where('restaurantID', '==', restaurantID);
+  const batch = db.batch();
+  const reviewsSnapshot = await queryRef.get();
+  for (const doc of reviewsSnapshot.docs) {
+    await batch.update(doc.ref, {restaurantName: name});
+  };
+  await batch.commit();
+  console.log(`name of restaurant updated to ${name}`);
+}
+
+
+
+
+
